@@ -10,7 +10,7 @@ const Footer = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url("/footer.jpg")'
+          backgroundImage: 'url("https://res.cloudinary.com/dice2v2zo/image/upload/v1769795678/footer_kian8e.jpg")'
         }}
       />
       

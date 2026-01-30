@@ -10,7 +10,7 @@ const Home = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fade-in"
         style={{
-          backgroundImage: 'url("/esg1.avif")'
+          backgroundImage: 'url("https://res.cloudinary.com/dice2v2zo/image/upload/v1769795677/esg1_qqbrof.avif")'
         }}
       />
       
@@ -22,7 +22,7 @@ const Home = () => {
         {/* Profile Picture */}
         <div className="w-32 h-32 md:w-64 md:h-64 rounded-full mb-4 md:mb-6 border-4 border-white shadow-lg overflow-hidden animate-slide-down-scale">
           <img 
-            src="/nithin.png" 
+            src="https://res.cloudinary.com/dice2v2zo/image/upload/v1769795680/nithin_lhpynt.png" 
             alt="Nithin Surendran Menon" 
             className="w-full h-full object-cover"
           />
