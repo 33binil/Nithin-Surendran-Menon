@@ -1,11 +1,19 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useProgressAnimation } from '../hooks/useProgressAnimation';
 
 const GlobalProfile = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.2);
+  const { ref: progressRef, values: progressBars } = useProgressAnimation(
+    { english: 95, german: 75, malayalam: 100 },
+    { english: 300, german: 600, malayalam: 900 }
+  );
+
   return (
-    <div className="bg-gradient-to-l from-[#19a249]/10 to-[#eff4f8] py-8 md:py-12 px-4" id="global-profile">
+    <div className="bg-gradient-to-l from-[#19a249]/10 to-[#eff4f8] py-8 md:py-12 px-4" id="global-profile" ref={sectionRef}>
       <div className="max-w-screen-2xl mx-auto mb-4 md:mb-6">
         {/* Section Title */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className={`text-center mb-8 md:mb-12 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-2xl zalando-font md:text-4xl lg:text-5xl font-bold text-slate-800 mb-4">
             GLOBAL PROFILE
           </h2>
@@ -16,7 +24,7 @@ const GlobalProfile = () => {
         {/* Profile Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {/* Languages Section */}
-          <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div className={`bg-white p-4 md:p-6 rounded-lg shadow-lg border border-green-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-green-200/50 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: '200ms' }} ref={progressRef}>
             <div className="flex items-center mb-4 md:mb-6">
               <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3 md:mr-4">
                 <svg className="w-5 h-5 md:w-6 md:h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,7 +39,7 @@ const GlobalProfile = () => {
             
             <div className="space-y-4 md:space-y-6">
               {/* English */}
-              <div className="bg-slate-50 p-3 md:p-4 rounded-lg">
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '400ms' }}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div>
                     <h4 className="font-semibold text-slate-800 text-sm md:text-base">English</h4>
@@ -41,14 +49,14 @@ const GlobalProfile = () => {
                     <span className="bg-green-100 text-green-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium">C1</span>
                   </div>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
-                  <div className="bg-green-600 h-2 rounded-full" style={{width: '95%'}}></div>
+                <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                  <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: `${progressBars.english}%`}}></div>
                 </div>
                 <p className="text-slate-600 text-xs md:text-sm mt-2">Professional business communication and technical documentation</p>
               </div>
 
               {/* German */}
-              <div className="bg-slate-50 p-3 md:p-4 rounded-lg">
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '600ms' }}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div>
                     <h4 className="font-semibold text-slate-800 text-sm md:text-base">German</h4>
@@ -58,14 +66,14 @@ const GlobalProfile = () => {
                     <span className="bg-blue-100 text-blue-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium">B2</span>
                   </div>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
-                  <div className="bg-blue-600 h-2 rounded-full" style={{width: '75%'}}></div>
+                <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: `${progressBars.german}%`}}></div>
                 </div>
                 <p className="text-slate-600 text-xs md:text-sm mt-2">Professional working proficiency in German business environment</p>
               </div>
 
               {/* Malayalam */}
-              <div className="bg-slate-50 p-3 md:p-4 rounded-lg">
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '800ms' }}>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div>
                     <h4 className="font-semibold text-slate-800 text-sm md:text-base">Malayalam</h4>
@@ -75,8 +83,8 @@ const GlobalProfile = () => {
                     <span className="bg-purple-100 text-purple-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium">Native</span>
                   </div>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
-                  <div className="bg-purple-600 h-2 rounded-full" style={{width: '100%'}}></div>
+                <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                  <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out" style={{width: `${progressBars.malayalam}%`}}></div>
                 </div>
                 <p className="text-slate-600 text-xs md:text-sm mt-2">Native fluency with cultural understanding</p>
               </div>
@@ -84,7 +92,7 @@ const GlobalProfile = () => {
           </div>
 
           {/* Certifications Section */}
-          <div className="bg-white p-4 md:p-6 rounded-lg shadow-lg border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div className={`bg-white p-4 md:p-6 rounded-lg shadow-lg border border-green-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-green-200/50 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: '400ms' }}>
             <div className="flex items-center mb-4 md:mb-6">
               <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg flex items-center justify-center mr-3 md:mr-4">
                 <svg className="w-5 h-5 md:w-6 md:h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,9 +107,9 @@ const GlobalProfile = () => {
             
             <div className="space-y-4 md:space-y-6">
               {/* Ecochain Academy */}
-              <div className="bg-slate-50 p-3 md:p-4 rounded-lg">
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '600ms' }}>
                 <div className="flex items-start">
-                  <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 hover:scale-110 hover:shadow-lg">
                     <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
                     </svg>
@@ -116,16 +124,16 @@ const GlobalProfile = () => {
                       <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                       </svg>
-                      <span className="text-slate-600 text-xs md:text-sm">2023</span>
+                      <span className="text-slate-600 text-xs md:text-sm">05/2025</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* B. Braun Business School */}
-              <div className="bg-slate-50 p-3 md:p-4 rounded-lg">
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '800ms' }}>
                 <div className="flex items-start">
-                  <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 hover:scale-110 hover:shadow-lg">
                     <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
                     </svg>
@@ -140,16 +148,16 @@ const GlobalProfile = () => {
                       <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                       </svg>
-                      <span className="text-slate-600 text-xs md:text-sm">2022</span>
+                      <span className="text-slate-600 text-xs md:text-sm">02/2024</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Deloitte CSRD Training */}
-              <div className="bg-slate-50 p-3 md:p-4 rounded-lg">
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '1000ms' }}>
                 <div className="flex items-start">
-                  <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 hover:scale-110 hover:shadow-lg">
                     <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
                     </svg>
@@ -164,7 +172,31 @@ const GlobalProfile = () => {
                       <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                       </svg>
-                      <span className="text-slate-600 text-xs md:text-sm">2023</span>
+                      <span className="text-slate-600 text-xs md:text-sm">03/2024</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Climate & Sustainability Job Simulation */}
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '1200ms' }}>
+                <div className="flex items-start">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                    <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-slate-800 text-sm md:text-base">Climate & Sustainability Job Simulation</h4>
+                    <p className="text-green-600 font-medium text-xs md:text-sm">Boston Consulting Group (BCG)</p>
+                    <p className="text-slate-600 text-xs md:text-sm mt-1">
+                      Comprehensive job simulation program focusing on climate strategy, sustainability consulting, and ESG implementation frameworks.
+                    </p>
+                    <div className="flex items-center mt-2">
+                      <svg className="w-3 h-3 md:w-4 md:h-4 text-blue-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                      </svg>
+                      <span className="text-slate-600 text-xs md:text-sm">09/2025</span>
                     </div>
                   </div>
                 </div>
