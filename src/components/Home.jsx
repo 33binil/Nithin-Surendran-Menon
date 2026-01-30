@@ -22,7 +22,7 @@ const Home = () => {
         {/* Profile Picture */}
         <div className="w-32 h-32 md:w-64 md:h-64 rounded-full mb-4 md:mb-6 border-4 border-white shadow-lg overflow-hidden animate-slide-down-scale">
           <img 
-            src="https://res.cloudinary.com/dice2v2zo/image/upload/v1769795680/nithin_lhpynt.png" 
+            src="https://res.cloudinary.com/dice2v2zo/image/upload/v1769796221/nithin_wzvohz.webp" 
             alt="Nithin Surendran Menon" 
             className="w-full h-full object-cover"
           />
