@@ -28,7 +28,7 @@ const Toolbox = () => {
               <h3 className="text-lg md:text-xl font-bold text-slate-800">Regulatory Mastery</h3>
             </div>
             <div className={`flex flex-wrap gap-2 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '1100ms' }}>
-              {['KrWG', 'PPWR', 'EU-MDR', 'WEEE', 'ESPR', 'REACH', 'LkSG', 'CSDDD', 'Circular Economy Action Plan (CEAP)'].map((framework, index) => (
+              {['KrWG', 'PPWR', 'EU-MDR', 'WEEE', 'ESPR', 'REACH', 'LkSG', 'CSDDD', 'Circular Economy Action Plan (CEAP)', 'CSRD','ESRS','EUDR','EU Taxonomy','CDP','SBTi','TCFD','SASB','IFRS'].map((framework, index) => (
                 <span 
                   key={framework} 
                   className={`bg-green-100 text-green-800 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-green-200 transition-all duration-300 hover:scale-110 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}

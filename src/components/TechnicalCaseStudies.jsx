@@ -93,7 +93,7 @@ const TechnicalCaseStudies = () => {
                       </li>
                       <li className={`flex items-start transition-all duration-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-5'}`} style={{ transitionDelay: '3300ms' }}>
                         <div className="w-2 h-2 bg-green-600 rounded-full mr-3 mt-2"></div>
-                        <span className="text-slate-600 text-sm md:text-base">developed circular business model is missing</span>
+                        <span className="text-slate-600 text-sm md:text-base">developed circular business model</span>
                       </li>
                     </ul>
                   </div>
