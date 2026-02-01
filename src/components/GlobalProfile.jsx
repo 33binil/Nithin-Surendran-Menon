@@ -179,7 +179,7 @@ const GlobalProfile = () => {
               </div>
 
               {/* Climate & Sustainability Job Simulation */}
-              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '1200ms' }}>
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '1600ms' }}>
                 <div className="flex items-start">
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 hover:scale-110 hover:shadow-lg">
                     <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -198,6 +198,24 @@ const GlobalProfile = () => {
                       </svg>
                       <span className="text-slate-600 text-xs md:text-sm">09/2025</span>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Project Management Certification */}
+              <div className={`bg-slate-50 p-3 md:p-4 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:shadow-md hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`} style={{ transitionDelay: '1400ms' }}>
+                <div className="flex items-start">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center mr-3 md:mr-4 flex-shrink-0 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                    <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-slate-800 text-sm md:text-base">Project Management</h4>
+                    <p className="text-green-600 font-medium text-xs md:text-sm">Politecnico Di Milano (Coursera) & Oracle Primavera</p>
+                    <p className="text-slate-600 text-xs md:text-sm mt-1">
+                      Comprehensive project management certification covering agile methodologies, project lifecycle management, and enterprise project planning using industry-standard tools.
+                    </p>
                   </div>
                 </div>
               </div>
