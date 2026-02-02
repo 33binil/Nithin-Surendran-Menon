@@ -32,7 +32,7 @@ const Footer = () => {
             {/* Action Buttons */}
             <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 md:mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '300ms' }}>
               <a
-                href="/german-cv.pdf"
+                href="/DE_Nithin_S_Menon_CV.pdf"
                 download
                 className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors shadow-lg text-sm md:text-base"
               >
@@ -41,7 +41,7 @@ const Footer = () => {
               </a>
               
               <a
-                href="/english-cv.pdf"
+                href="/Nithin Menon CV.pdf"
                 download
                 className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-sm md:text-base"
               >
